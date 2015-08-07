@@ -1,0 +1,20 @@
+{
+    "name": "malef/serializer",
+    "type": "library",
+    "description": "Flexible and lightweight serializer supporting JSON format.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mariusz Bąk",
+            "email": "mariusz.alef.bak@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/yaml": "~2.3",
+        "symfony/options-resolver": "~2.3"
+    },
+    "autoload": {
+        "psr-4": { "Malef\\Serializer\\": "src/Malef/Serializer/" }
+    }
+}
