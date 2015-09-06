@@ -36,6 +36,7 @@ class MappingYamlParser
             foreach ($rawFieldMappings as $rawFieldMapping) {
                 $rawFieldMapping += [ // @todo Use OptionsResolver here.
                     'type' => 'mixed',
+                    'nullable' => false,
                     'embedded_facets' => [],
                     'strip_array_keys' => false,
                 ];
@@ -49,6 +50,7 @@ class MappingYamlParser
                 $fieldMapping = new FieldMapping(
                     $rawFieldMapping['getter'],
                     $rawFieldMapping['type'],
+                    $rawFieldMapping['nullable'],
                     $rawFieldMapping['embedded_facets'],
                     $rawFieldMapping['strip_array_keys'],
                     $transformerMappings

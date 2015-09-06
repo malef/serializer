@@ -87,6 +87,10 @@ class Serializer
     {
         $value = call_user_func([$object, $fieldMapping->getGetter()]);
 
+        if (is_null($value) && $fieldMapping->isNullable()) {
+            return null;
+        }
+
         if (
             ('mixed' === $fieldMapping->getType())
             || ('bool' === $fieldMapping->getType() && is_bool($value))
