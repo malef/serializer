@@ -15,6 +15,11 @@ class FieldMapping
     protected $type;
 
     /**
+     * @var boolean
+     */
+    protected $nullable;
+
+    /**
      * @var string[]
      */
     protected $embeddedFacets;
@@ -32,14 +37,16 @@ class FieldMapping
     /**
      * @param string $getter
      * @param string $type
+     * @param boolean $nullable
      * @param string[] $embeddedFacets
      * @param boolean $stripArrayKeys
      * @param TransformerMapping[] $transformerMappings
      */
-    public function __construct($getter, $type, $embeddedFacets, $stripArrayKeys, array $transformerMappings)
+    public function __construct($getter, $type, $nullable, $embeddedFacets, $stripArrayKeys, array $transformerMappings)
     {
         $this->getter = $getter;
         $this->type = $type;
+        $this->nullable = $nullable;
         $this->embeddedFacets = $embeddedFacets;
         $this->stripArrayKeys = $stripArrayKeys;
         foreach ($transformerMappings as $transformerMapping) {
@@ -61,6 +68,14 @@ class FieldMapping
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isNullable()
+    {
+        return $this->nullable;
     }
 
     /**
